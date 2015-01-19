@@ -2,20 +2,30 @@ package ah.myapp.server;
 
 import ah.myapp.server.dm.Person;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/person")
 public class PersonResource
 {
+
     @GET
     public String getName()
     {
         return "my name";
+    }
+
+    @GET
+    @Path("/person/{id}")
+    public Person getPersonById(@PathParam("id") int id)
+    {
+        if(id == 1)
+        {
+            return new Person(1234, "shumacher");
+        }
+
+        return new Person(4321, "drakula");
     }
 
     @POST
