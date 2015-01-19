@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/person")
-public class PersonService
+public class PersonResource
 {
     @GET
     public String getName()

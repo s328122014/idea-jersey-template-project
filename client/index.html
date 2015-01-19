@@ -19,29 +19,26 @@
     $.ajax({
         url:"/ahs/person",
         type: "get",
-        success: SuccessCb,
-        error: ErrorCb
+        success: function(response){
+	        console.log("GET succeeded: " + response);
+        },
+        error: function(error){
+	        console.log("GET error: " + error.status + " " + error.statusText);
+        }
     });
 
     $.ajax({
         url: "/ahs/person",
-	      //contentType: "application/json; charset=utf-8",
+	      contentType: "application/json; charset=utf-8",
         type: "post",
-        //data: JSON.stringify(person),
-	      data: person,
-        success: SuccessCb,
-        error: ErrorCb
+        data: JSON.stringify(person),
+	    success: function(response){
+		    console.log("POST succeeded: " + response);
+	    },
+	    error: function(error){
+		    console.log("POST error: " + error.status + " " + error.statusText);
+	    }
     });
-
-    function SuccessCb(response)
-    {
-        alert("ajax succeeded ");
-    }
-
-    function ErrorCb(error)
-    {
-        alert(error.status + " " + error.statusText);
-    }
 
 </script>
 
