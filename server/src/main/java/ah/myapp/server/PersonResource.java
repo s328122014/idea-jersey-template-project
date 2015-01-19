@@ -10,14 +10,15 @@ import javax.ws.rs.core.Response;
 public class PersonResource
 {
 
-    @GET
-    public String getName()
-    {
-        return "my name";
-    }
+//    @GET
+//    public String getName()
+//    {
+//        return "my name";
+//    }
 
     @GET
-    @Path("/person/{id}")
+    @Path("/get/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
     public Person getPersonById(@PathParam("id") int id)
     {
         if(id == 1)
@@ -29,6 +30,7 @@ public class PersonResource
     }
 
     @POST
+    @Path("/create")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response Create(Person p)
     {

@@ -17,10 +17,10 @@
 
 
     $.ajax({
-        url:"/ahs/person",
+        url:"/ahs/person/get/1",
         type: "get",
-        success: function(response){
-	        console.log("GET succeeded: " + response);
+        success: function(p){
+	        console.log("GET succeeded: Person Id: " + p.Id + " Person Name: " + p.Name);;
         },
         error: function(error){
 	        console.log("GET error: " + error.status + " " + error.statusText);
@@ -28,7 +28,7 @@
     });
 
     $.ajax({
-        url: "/ahs/person",
+        url: "/ahs/person/create",
 	      contentType: "application/json; charset=utf-8",
         type: "post",
         data: JSON.stringify(person),
