@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AH application</title>
+	<div>AH Application</div>
+</head>
+<body>
+
+<script src="lib/jquery.js"></script>
+<script>
+
+    var person = {
+        "Id": 10,
+        "Name": "AmirH the shark"
+    }
+
+
+    $.ajax({
+        url:"/ahs/person",
+        type: "get",
+        success: SuccessCb,
+        error: ErrorCb
+    });
+
+    $.ajax({
+        url: "/ahs/person",
+	      //contentType: "application/json; charset=utf-8",
+        type: "post",
+        //data: JSON.stringify(person),
+	      data: person,
+        success: SuccessCb,
+        error: ErrorCb
+    });
+
+    function SuccessCb(response)
+    {
+        alert("ajax succeeded ");
+    }
+
+    function ErrorCb(error)
+    {
+        alert(error.status + " " + error.statusText);
+    }
+
+</script>
+
+</body>
+</html>
